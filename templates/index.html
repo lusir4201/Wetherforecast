@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>天气查询</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+    <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/static/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+<div class="container container-small">
+    <div class="content">
+        <div class="header">
+            天气查询软件
+        </div>
+        <div class="block-info">
+            <div class="form-group has-success">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        城市：
+                    </div>
+                    <input id='name' class="form-control"/>
+
+                </div>
+
+            </div>
+            <div class="form-group ">
+                <button class="form-control btn-primary" id="load">查询</button>
+            </div>
+            <p class="result"></p>
+            <script type="text/javascript">
+                $(function () {
+                    $('#load').click(function () {
+                        let city = $('#name').val();
+                        if (city.length > 0) {
+                            $.ajax({
+                                url: '/weather/' + city,
+                                type: 'get',
+                                success: function (data) {
+                                    $('.result').html(data);
+                                }
+                            })
+                        } else {
+                            $('.result').html("请填写正确的城市名称...");
+                        }
+                    })
+                })
+            </script>
+        </div>
+    </div>
+    <div class="footer">
+        ©2019-欢迎关注我的公众号：<a href="https://www.jianshu.com/u/d23fd5012bed">清风Python</a>
+    </div>
+</div>
+ <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet"><script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
